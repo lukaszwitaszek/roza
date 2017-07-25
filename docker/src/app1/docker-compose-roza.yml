@@ -1,0 +1,30 @@
+web:
+  image: tutorial/nginx
+  ports:
+    - "8080:80"
+  volumes:
+    - ./:/var/www
+    - ./conf/vhost.conf:/etc/nginx/sites-enabled/vhost.conf
+    - ./www-logs/:/var/log/nginx
+  links:
+    - php
+php:
+  image: nmcteam/php56
+  volumes:
+    - ./conf/php-fpm.conf:/etc/php5/fpm/php-fpm.conf
+    - ./:/var/www
+  links:
+    - db
+db:
+  image: sameersbn/mysql
+  ports:
+    - "3306:3306"
+  volumes:
+   - /var/lib/mysql
+   - ./db-logs/:/var/log/mysql
+  environment:
+   - DB_NAME=db_main
+   - DB_USER=dbRoot
+   - DB_PASS=dbRootPass
+   - DB_REMOTE_ROOT_NAME=rootUser
+   - DB_REMOTE_ROOT_PASS=rootPass

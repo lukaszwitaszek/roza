@@ -1,0 +1,35 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost 
+fe80::1%lo0	localhost
+192.168.100.10	symfony.dev
+
+# added automatically by hosts.sh scritp from dedicated folder
+192.168.100.10 fideslogistik.pl.symfony.dev
+192.168.100.10 www.fideslogistik.pl.symfony.dev
+
+# added automatically by hosts.sh scritp from dedicated folder
+192.168.100.10 testowa2.symfony.dev
+192.168.100.10 www.testowa2.symfony.dev
+
+# added automatically by hosts.sh scritp from dedicated folder
+192.168.100.10 kompas.edu.symfony.dev
+192.168.100.10 www.kompas.edu.symfony.dev
+
+# added automatically by hosts.sh scritp from dedicated folder
+192.168.100.10 myWP1.symfony.dev
+192.168.100.10 www.myWP1.symfony.dev
+
+# added automatically by hosts.sh scritp from dedicated folder
+192.168.100.10 roza.pl.symfony.dev
+192.168.100.10 www.roza.pl.symfony.dev
+
+# added automatically by hosts.sh scritp from dedicated folder
+172.17.0.2 docker.dev
+172.17.0.2 www.docker.dev

@@ -1,0 +1,185 @@
+2017/07/07 11:21:18 [error] 39#39: *8 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/routes/home.php on line 22
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:47" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/10 09:07:41 [error] 40#40: *90 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected end of file, expecting '`' in /var/www/roza.pl/app/routes/kontakt.php on line 25
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:47" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/10 12:33:48 [error] 39#39: *150 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class 'Www\Middleware\Middleware' not found in /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php on line 6
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. spl_autoload_call() /var/www/roza.pl/public/index.php:69
+PHP message: PHP   4. Composer\Autoload\ClassLoader->loadClass() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   5. Composer\Autoload\includeFile() /var/www/roza.pl/vendor/composer/ClassLoader.php:322
+PHP message: PHP   6. include() /var/www/roza.pl/vendor/composer/ClassLoader.php:444" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/10 12:34:11 [error] 39#39: *150 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class 'Wwd\Middleware\Middleware' not found in /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php on line 6
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. spl_autoload_call() /var/www/roza.pl/public/index.php:69
+PHP message: PHP   4. Composer\Autoload\ClassLoader->loadClass() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   5. Composer\Autoload\includeFile() /var/www/roza.pl/vendor/composer/ClassLoader.php:322
+PHP message: PHP   6. include() /var/www/roza.pl/vendor/composer/ClassLoader.php:444" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/12 11:42:04 [error] 40#40: *314 FastCGI sent in stderr: "PHP message: PHP Warning:  require(/var/www/roza.pl/app/routes/tajemnica.php): failed to open stream: No such file or directory in /var/www/roza.pl/app/routes.php on line 5
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48
+PHP message: PHP Fatal error:  require(): Failed opening required '/var/www/roza.pl/app/routes/tajemnica.php' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/roza.pl/app/routes.php on line 5
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/12 11:49:55 [error] 39#39: *330 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /var/www/roza.pl/app/routes/tajemnice.php on line 22
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 08:07:44 [error] 39#39: *372 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '$liczbaTajemnic' (T_VARIABLE), expecting identifier (T_STRING) in /var/www/roza.pl/app/routes/tajemnice.php on line 4
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica/1 HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 08:07:52 [error] 39#39: *372 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '$liczbaTajemnic' (T_VARIABLE), expecting identifier (T_STRING) in /var/www/roza.pl/app/routes/tajemnice.php on line 4
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 08:08:36 [error] 39#39: *372 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '}' in /var/www/roza.pl/app/routes/tajemnice.php on line 40
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 08:09:48 [error] 39#39: *372 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function vardump() in /var/www/roza.pl/app/routes/tajemnice.php on line 31
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/tajemnice.php:7-40}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/13 09:02:20 [error] 40#40: *480 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';' in /var/www/roza.pl/app/routes/tajemnice.php on line 10
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:48" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica/21 HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 12:32:56 [error] 40#40: *508 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined method Slim\Slim::menu() in /var/www/roza.pl/app/routes/home.php on line 7
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:3-32}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 12:35:51 [error] 39#39: *510 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /var/www/roza.pl/app/Wwd/Menus/Menus.php on line 20
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:3-31}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Slim\Slim->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:7
+PHP message: PHP  12. Slim\Helper\Set->get() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:232
+PHP message: PHP  13. {closure:/var/www/roza.pl/app/start.php:53-55}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:88
+PHP message: PHP  14. spl_autoload_call() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:54
+PHP message: PHP  15. Composer\Autoload\ClassLoader->loadClass() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:0
+PHP message: PHP  16. Composer\Autoload\includeFile() /var/www/roza.pl/vendor/composer/ClassLoader.php:322" while reading response header from upstream, clie
+2017/07/13 12:37:22 [error] 40#40: *513 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot redeclare Wwd\Menus\Menus::giveItems() in /var/www/roza.pl/app/Wwd/Menus/Menus.php on line 28
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:3-31}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Slim\Slim->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:7
+PHP message: PHP  12. Slim\Helper\Set->get() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:232
+PHP message: PHP  13. {closure:/var/www/roza.pl/app/start.php:53-55}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:88
+PHP message: PHP  14. spl_autoload_call() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:54
+PHP message: PHP  15. Composer\Autoload\ClassLoader->loadClass() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:0
+PHP message: PHP  16. Composer\Autoload\includeFile() /var/www/roza.pl/vendor/composer/ClassLoader.php:322" while reading response header from upstream, client: 
+2017/07/13 12:38:07 [error] 40#40: *513 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot redeclare class Wwd\Menus\Menus in /var/www/roza.pl/app/Wwd/Menus/menus.php on line 13
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:3-31}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Slim\Slim->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:7
+PHP message: PHP  12. Slim\Helper\Set->get() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:232
+PHP message: PHP  13. {closure:/var/www/roza.pl/app/start.php:53-55}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:88
+PHP message: PHP  14. Wwd\Menus\Menus->__construct() /var/www/roza.pl/app/start.php:54" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/13 12:47:45 [error] 40#40: *521 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/menuItemsFile.php on line 7
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:3-31}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Slim\Slim->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:7
+PHP message: PHP  12. Slim\Helper\Set->get() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:232
+PHP message: PHP  13. {closure:/var/www/roza.pl/app/start.php:53-55}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:88
+PHP message: PHP  14. Wwd\Menus\Menus->__construct() /var/www/roza.pl/app/start.php:54" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/18 10:28:48 [error] 39#39: *598 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/routes/tajemnice.php on line 30
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:50" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/18 11:19:48 [error] 40#40: *641 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ']' in /var/www/roza.pl/app/routes/home.php on line 54
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:50" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/19 08:27:12 [error] 39#39: *776 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to a member function all() on boolean in /var/www/roza.pl/app/routes/tajemnice.php on line 10
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/tajemnice.php:4-29}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /tajemnica HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/19 09:36:13 [error] 40#40: *862 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/routes/home.php on line 14
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:51" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
+2017/07/19 09:36:41 [error] 40#40: *862 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/routes/home.php on line 49
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:51" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"

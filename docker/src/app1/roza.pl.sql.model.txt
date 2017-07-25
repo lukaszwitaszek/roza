@@ -1,0 +1,124 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema db_main
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema db_main
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `db_main` DEFAULT CHARACTER SET utf8 ;
+USE `db_main` ;
+
+-- -----------------------------------------------------
+-- Table `db_main`.`tajemnice`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_main`.`tajemnice` (
+  `nazwa` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `opis` VARCHAR(1000) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `modyfilacja` DATE NOT NULL,
+  `nr_tajemnicy` INT(2) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_polish_ci
+COMMENT = 'opis tajemnic R';
+
+
+-- -----------------------------------------------------
+-- Table `db_main`.`uczestnicy`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_main`.`uczestnicy` (
+  `imie` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `nazwisko` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `email` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `telefon` VARCHAR(12) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NULL DEFAULT NULL,
+  `dolaczyl` DATE NOT NULL,
+  `ost_wizyta` DATETIME NULL DEFAULT NULL,
+  `admin` TINYINT(4) NOT NULL,
+  `upraw` INT(11) NOT NULL,
+  `kolo_id` INT(11) NOT NULL,
+  `nr_tajemnicy` INT(2) NOT NULL,
+  `ostatnia_wiadomosc` INT(11) NULL DEFAULT NULL,
+  `id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_uczestnicy_kolo1_idx` (`kolo_id` ASC),
+  INDEX `fk_uczestnicy_tajemnice1_idx` (`nr_tajemnicy` ASC),
+  CONSTRAINT `fk_uczestnicy_kolo1`
+    FOREIGN KEY (`kolo_id`)
+    REFERENCES `db_main`.`kolo` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_uczestnicy_tajemnice1`
+    FOREIGN KEY (`nr_tajemnicy`)
+    REFERENCES `db_main`.`tajemnice` (`nr_tajemnicy`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_polish_ci
+COMMENT = 'tabela uzytkownikow systemu KZR';
+
+
+-- -----------------------------------------------------
+-- Table `db_main`.`kolo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_main`.`kolo` (
+  `id` INT(10) UNSIGNED NOT NULL,
+  `nazwa` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `data_uruchomienia` DATE NOT NULL,
+  `zelator_id` INT(11) NOT NULL,
+  `rolowanie` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_kolo_uczestnicy1_idx` (`zelator_id` ASC),
+  CONSTRAINT `fk_kolo_uczestnicy1`
+    FOREIGN KEY (`zelator_id`)
+    REFERENCES `db_main`.`uczestnicy` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_polish_ci
+COMMENT = 'tabela zawierajaca informacje o Kolach ZR w systemie.	';
+
+
+-- -----------------------------------------------------
+-- Table `db_main`.`wiadomosci`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_main`.`wiadomosci` (
+  `id` INT(11) NOT NULL,
+  `naglowek` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `tresc` VARCHAR(1500) CHARACTER SET 'utf8' COLLATE 'utf8_polish_ci' NOT NULL,
+  `publikacja` DATE NOT NULL,
+  `kolo_id` INT(11) NOT NULL,
+  `autor_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_wiadomosci_uczestnicy1_idx` (`autor_id` ASC),
+  INDEX `fk_wiadomosci_kolo1_idx` (`kolo_id` ASC),
+  CONSTRAINT `fk_wiadomosci_uczestnicy1`
+    FOREIGN KEY (`autor_id`)
+    REFERENCES `db_main`.`uczestnicy` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_wiadomosci_kolo1`
+    FOREIGN KEY (`kolo_id`)
+    REFERENCES `db_main`.`kolo` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_polish_ci
+COMMENT = 'wiadomoœci przesy³ane do cz³onków systemu';
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
