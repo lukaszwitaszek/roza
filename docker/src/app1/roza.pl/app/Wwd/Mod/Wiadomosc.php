@@ -15,5 +15,4 @@ class Wiadomosc extends Eloquent
         'autor_id',
     ];
     
-    
 }

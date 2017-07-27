@@ -33,10 +33,14 @@ $app->post('/', function() use($app){
             
             // przygotowanie widoku
             $title = $app->config->get('app.nazwa').' | Zalogowany';
+            
             // tajemnica przypisana do uczestnika
-            $app->tajemnicaPrzypisana = $app->tajemnica->where('nr_tajemnicy', $uczestnik->nr_tajemnicy)->first();
+            $app->tajemnicaPrzypisana = $uczestnik->tajemnica->first();
+            
             // koło, do którego przynależy uczestnik
-            $app->koloPrzypisane = $app->kolo->where('id', $uczestnik->kolo_id)->first();
+            $app->koloPrzypisane = $uczestnik->kolo->first();
+            $app->zelat=$app->koloPrzypisane->zelator->first();
+            
             // nawigacja dla trasy
             $navItems = $app->menu->giveAllItems();
             
@@ -47,6 +51,7 @@ $app->post('/', function() use($app){
                 'footer' => true,
                 'tajemnica' => $app->tajemnicaPrzypisana,
                 'kolo' => $app->koloPrzypisane,
+                'zelator' => $app->zelat,
                 'auth'=>$uczestnik,
             ]);
         } else {
