@@ -1,0 +1,112 @@
+2017/07/26 22:33:21 [error] 40#40: *33 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Maximum function nesting level of '100' reached, aborting! in /var/www/roza.pl/vendor/illuminate/database/Eloquent/Model.php on line 160
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:19-72}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Illuminate\Database\Eloquent\Model->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:42
+PHP message: PHP  12. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Model.php:1262
+PHP message: PHP  13. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  14. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  15. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/il
+2017/07/26 22:33:21 [error] 40#40: *33 FastCGI sent in stderr: " PHP  29. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  30. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  31. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  32. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  33. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:400
+PHP message: PHP  34. Illuminate\Database\Eloquent\Model->hasOne() /var/www/roza.pl/app/Wwd/Mod/Kolo.php:26
+PHP message: PHP  35. Illuminate\Database\Eloquent\Relations\HasOneOrMany->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasRelationships.php:62
+PHP message: PHP  36. Illuminate\Database\Eloquent\Relations\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  37. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  38. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  39. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  40. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  41. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/
+2017/07/26 22:33:21 [error] 40#40: *33 FastCGI sent in stderr: "e\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  56. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  57. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  58. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  59. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  60. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:400
+PHP message: PHP  61. Illuminate\Database\Eloquent\Model->hasOne() /var/www/roza.pl/app/Wwd/Mod/Kolo.php:26
+PHP message: PHP  62. Illuminate\Database\Eloquent\Relations\HasOneOrMany->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasRelationships.php:62
+PHP message: PHP  63. Illuminate\Database\Eloquent\Relations\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  64. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  65. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  66. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  67. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illumina
+2017/07/26 22:33:21 [error] 40#40: *33 FastCGI sent in stderr: "ons\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  82. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  83. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  84. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  85. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  86. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  87. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:400
+PHP message: PHP  88. Illuminate\Database\Eloquent\Model->hasOne() /var/www/roza.pl/app/Wwd/Mod/Kolo.php:26
+PHP message: PHP  89. Illuminate\Database\Eloquent\Relations\HasOneOrMany->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasRelationships.php:62
+PHP message: PHP  90. Illuminate\Database\Eloquent\Relations\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  91. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  92. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  93. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/databas
+2017/07/26 22:35:01 [error] 40#40: *35 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Maximum function nesting level of '100' reached, aborting! in /var/www/roza.pl/vendor/illuminate/database/Eloquent/Model.php on line 160
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/home.php:19-72}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Illuminate\Database\Eloquent\Model->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:42
+PHP message: PHP  12. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Model.php:1262
+PHP message: PHP  13. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  14. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  15. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/il
+2017/07/26 22:35:01 [error] 40#40: *35 FastCGI sent in stderr: " PHP  29. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  30. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  31. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  32. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  33. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:400
+PHP message: PHP  34. Illuminate\Database\Eloquent\Model->hasOne() /var/www/roza.pl/app/Wwd/Mod/Kolo.php:26
+PHP message: PHP  35. Illuminate\Database\Eloquent\Relations\HasOneOrMany->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasRelationships.php:62
+PHP message: PHP  36. Illuminate\Database\Eloquent\Relations\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  37. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  38. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  39. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  40. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  41. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/
+2017/07/26 22:35:01 [error] 40#40: *35 FastCGI sent in stderr: "e\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  56. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  57. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  58. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  59. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  60. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:400
+PHP message: PHP  61. Illuminate\Database\Eloquent\Model->hasOne() /var/www/roza.pl/app/Wwd/Mod/Kolo.php:26
+PHP message: PHP  62. Illuminate\Database\Eloquent\Relations\HasOneOrMany->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasRelationships.php:62
+PHP message: PHP  63. Illuminate\Database\Eloquent\Relations\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  64. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  65. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  66. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  67. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illumina
+2017/07/26 22:35:01 [error] 40#40: *35 FastCGI sent in stderr: "ons\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  82. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  83. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  84. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:383
+PHP message: PHP  85. Illuminate\Database\Eloquent\Model->getRelationValue() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:316
+PHP message: PHP  86. Illuminate\Database\Eloquent\Model->getRelationshipFromMethod() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:386
+PHP message: PHP  87. Wwd\Mod\Kolo->zelator() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasAttributes.php:400
+PHP message: PHP  88. Illuminate\Database\Eloquent\Model->hasOne() /var/www/roza.pl/app/Wwd/Mod/Kolo.php:26
+PHP message: PHP  89. Illuminate\Database\Eloquent\Relations\HasOneOrMany->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Concerns/HasRelationships.php:62
+PHP message: PHP  90. Illuminate\Database\Eloquent\Relations\Relation->__construct() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:46
+PHP message: PHP  91. Illuminate\Database\Eloquent\Relations\HasOneOrMany->addConstraints() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/Relation.php:67
+PHP message: PHP  92. Illuminate\Database\Eloquent\Relations\HasOneOrMany->getParentKey() /var/www/roza.pl/vendor/illuminate/database/Eloquent/Relations/HasOneOrMany.php:70
+PHP message: PHP  93. Illuminate\Database\Eloquent\Model->getAttribute() /var/www/roza.pl/vendor/illuminate/databas

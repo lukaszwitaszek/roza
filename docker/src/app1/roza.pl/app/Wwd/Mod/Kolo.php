@@ -10,7 +10,19 @@ class Kolo extends Eloquent
     
     protected $fillable = [
         'nazwa',
-        'zelator',
+        'zelator_id',
         'rolowanie',
     ];
+    
+    public function uczestnik(){
+        return $this->hasMany('Wwd\Mod\Uczestnik','kolo_id');
+    }
+    
+    public function wiadomosc(){
+        return $this->hasMany('Wwd\Mod\Wiadomosc', 'kolo_id');
+    }
+    
+    public function zelator(){
+        return $this->hasOne('Wwd\Mod\Uczestnik', 'id', 'zelator_id');
+    }
 }

@@ -22,7 +22,11 @@ class Uczestnik extends Eloquent
     ];
     
     public function kolo(){
-        return $this->belongsTo('Wwd\Mod\Kolo','kolo_id');
+        return $this->belongsTo('Wwd\Mod\Kolo','kolo_id','id');
+    }
+    
+    public function tajemnica(){
+        return $this->hasOne('Wwd\Mod\Tajemnica', 'nr_tajemnicy', 'nr_tajemnicy');
     }
         
 }
