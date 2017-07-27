@@ -19,7 +19,7 @@ class Kolo extends Eloquent
     }
     
     public function wiadomosc(){
-        return $this->hasMany('Wwd\Mod\Wiadomosc', 'kolo_id');
+        return $this->hasMany('Wwd\Mod\Wiadomosc');
     }
     
     public function zelator(){

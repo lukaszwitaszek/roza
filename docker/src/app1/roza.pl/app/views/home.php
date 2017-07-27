@@ -4,7 +4,7 @@
 
 {% block content1 %}
     {% if auth %}
-        <p>Witaj {{ auth.imie }} {{auth.admin}} {{auth.zelat }}</p>
+        <p>Witaj {{auth.imie}} {{auth.nazwisko}}</p>
         <p>Aktualna tajemnica, którą się modlisz: <i>{{tajemnica.nazwa}}</i>.</br>{{tajemnica.opis}}</p>
         <p>Koło ŻR, którego jesteś członkiem: <i>{{kolo.nazwa}}</i>.</br>Zelatorem jest <b>{{zelator.imie}}</b>.</p>
     {% else %}
@@ -14,10 +14,11 @@
 
 {% block content2 %}
     {% if auth %}
-        <p>Witaj {{ auth.imie }}</p>
-        <p>Wiadomości przeznaczone dla Ciebie:</p>
+        <p>Wiadomości przeznaczone dla twojego koła:</p>
         <p>
-            {}
+            {% for item in wiadomosc %}
+                {{item.naglowek}}, wysłana {{item.updated_at}}<br/>{{item.tresc}}
+            {% endfor %}
         </p>
     {% else %}
         Uzyskaj dostęp do informacji dla członków Koła.</br>

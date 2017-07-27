@@ -10,8 +10,6 @@ $app->get('/', function() use($app){
         'header' => true,
         'nav' => $navItems,
         'navHorizontal' => false,
-        'tajemnica' => $app->tajemnicaPrzypisana,
-        'kolo' => $app->koloPrzypisane,
         'footer' => true,
     ]);
 })->name('home');
@@ -34,12 +32,19 @@ $app->post('/', function() use($app){
             // przygotowanie widoku
             $title = $app->config->get('app.nazwa').' | Zalogowany';
             
-            // tajemnica przypisana do uczestnika
+            // dane uczestnika
             $app->tajemnicaPrzypisana = $uczestnik->tajemnica->first();
-            
-            // koło, do którego przynależy uczestnik
             $app->koloPrzypisane = $uczestnik->kolo->first();
             $app->zelat=$app->koloPrzypisane->zelator->first();
+            $app->wiad=$app->koloPrzypisane->wiadomosc->all();
+            
+            $app->view()->appendData([
+                'auth' => $app->uczestnik,
+                'tajemnica' => $app->tajemnicaPrzypisana,
+                'kolo' => $app->koloPrzypisane,
+                'zelator' => $app->zelat,
+                'wiadomosc' => $app->wiad,
+            ]);
             
             // nawigacja dla trasy
             $navItems = $app->menu->giveAllItems();
@@ -49,11 +54,8 @@ $app->post('/', function() use($app){
                 'header' => true,
                 'nav' => $navItems,
                 'footer' => true,
-                'tajemnica' => $app->tajemnicaPrzypisana,
-                'kolo' => $app->koloPrzypisane,
-                'zelator' => $app->zelat,
-                'auth'=>$uczestnik,
             ]);
+            
         } else {
             $app->flash('global','Nie udało się zalogować.');
             $app->response->redirect($app->urlFor('home'));

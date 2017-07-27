@@ -6,5 +6,9 @@ $app->get('/logout', function() use($app){
     session_destroy();
     $_SESSION = array();
     $app->auth=false;
+    $app->zelat=false;
+    $app->wiad=false;
+    $app->tajemnicaPrzypisana=false;
+    $app->koloPrzypisane = false;
     $app->response->redirect($app->urlFor('home'));
 })->name('logout');

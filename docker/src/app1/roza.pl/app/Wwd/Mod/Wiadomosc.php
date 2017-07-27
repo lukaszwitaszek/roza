@@ -15,4 +15,11 @@ class Wiadomosc extends Eloquent
         'autor_id',
     ];
     
+    public function kolo(){
+        return $this->belongsTo('Wwd\Mod\Kolo', 'id', 'kolo_id');
+    }
+    
+    public function autor(){
+        return $this->belongsTo('Wwd\Mod\Uczestnik', 'id', 'autor_id');
+    }
 }
