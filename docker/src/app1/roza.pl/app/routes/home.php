@@ -33,13 +33,14 @@ $app->post('/', function() use($app){
             $title = $app->config->get('app.nazwa').' | Zalogowany';
             
             // dane uczestnika
+            $app->auth=$uczestnik;
             $app->tajemnicaPrzypisana = $uczestnik->tajemnica->first();
             $app->koloPrzypisane = $uczestnik->kolo->first();
             $app->zelat=$app->koloPrzypisane->zelator->first();
             $app->wiad=$app->koloPrzypisane->wiadomosc->all();
             
             $app->view()->appendData([
-                'auth' => $app->uczestnik,
+                'auth' => $app->auth,
                 'tajemnica' => $app->tajemnicaPrzypisana,
                 'kolo' => $app->koloPrzypisane,
                 'zelator' => $app->zelat,
