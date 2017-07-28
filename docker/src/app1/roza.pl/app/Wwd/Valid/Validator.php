@@ -17,6 +17,9 @@ class Validator extends Violin
             'email' => [
                 'email' => 'proszę podać prawiłdowy adres email.'
             ],
+            'password' => [
+                'required' => 'proszę podać hasło'
+            ],
         ]);
     }
 }

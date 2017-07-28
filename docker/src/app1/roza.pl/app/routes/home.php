@@ -34,9 +34,12 @@ $app->post('/', function() use($app){
             
             // dane uczestnika
             $app->auth=$uczestnik;
-            $app->tajemnicaPrzypisana = $uczestnik->tajemnica->first();
-            $app->koloPrzypisane = $uczestnik->kolo->first();
-            $app->zelat=$app->koloPrzypisane->zelator->first();
+            $app->tajemnicaPrzypisana = $app->auth->tajemnica($app->auth,$app->tajemnica);
+            //$app->tajemnicaPrzypisana = $uczestnik->tajemnica->first();
+            $app->koloPrzypisane = $app->auth->kolo($app->auth,$app->kolo);
+            //$app->koloPrzypisane = $uczestnik->kolo->first();
+            $app->zelat=$app->koloPrzypisane->zelator($app->auth,$app->koloPrzypisane);
+            //$app->zelat=$app->koloPrzypisane->zelator->first();
             $app->wiad=$app->koloPrzypisane->wiadomosc->all();
             
             $app->view()->appendData([

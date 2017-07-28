@@ -21,12 +21,12 @@ class Uczestnik extends Eloquent
         'ostatnia_wiadomosc',
     ];
     
-    public function kolo(){
-        return $this->belongsTo('Wwd\Mod\Kolo','kolo_id','id');
+    public function kolo($uczObj,$kolObj){
+        return $kolObj->where('id',$uczObj['kolo_id'])->first();
     }
     
-    public function tajemnica(){
-        return $this->hasOne('Wwd\Mod\Tajemnica', 'nr_tajemnicy', 'nr_tajemnicy');
+    public function tajemnica($uczObj,$tajObj){
+        return $tajObj->where('nr_tajemnicy',$uczObj['nr_tajemnicy'])->first();
     }
         
 }

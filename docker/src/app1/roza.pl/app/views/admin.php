@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content2 %}
+    <hr>
     <p>W systemie są zarejestrowane następujące koła:</p>
     {% for i in kola %}
         <p>{{i.kolo.nazwa}}, prowadzone przez {{i.zelator.imie}} {{i.zelator.nazwisko}}.</p>
@@ -25,5 +26,11 @@
         <p>*** Przypisanie zelatora do dodawanego koła będzie możliwe w sekcji edycji uczestnikow Koła.</p>
         </form> 
     <hr>
+    
+    <p>W systemie są zarejestrowani następujący administratorzy:</p>
+    {% for a in admini %}
+        <pre>{{a}}
+        <p>*** Modyfikacja uprawnień administratora dostępna w sekcji uczestników.</p><hr>
+    {% endfor %}
     
 {% endblock %}

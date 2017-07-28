@@ -22,7 +22,7 @@ class Kolo extends Eloquent
         return $this->hasMany('Wwd\Mod\Wiadomosc');
     }
     
-    public function zelator(){
-        return $this->hasOne('Wwd\Mod\Uczestnik', 'id', 'zelator_id');
+    public function zelator($uczObj,$kolObj){
+        return $uczObj->where('id',$kolObj['zelator_id'])->first();
     }
 }
