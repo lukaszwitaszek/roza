@@ -1,0 +1,20 @@
+2017/07/28 22:19:24 [error] 38#38: *1 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ')' in /var/www/roza.pl/app/routes/admin.php on line 54
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:52" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /admin HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/28 22:19:24 [error] 38#38: *1 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ')' in /var/www/roza.pl/app/routes/admin.php on line 54
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:52" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/admin"
+2017/07/31 06:26:19 [error] 38#38: *1 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ')' in /var/www/roza.pl/app/routes/admin.php on line 54
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:52" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /admin HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/07/31 06:26:19 [error] 38#38: *1 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ')' in /var/www/roza.pl/app/routes/admin.php on line 54
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:52" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/admin"
