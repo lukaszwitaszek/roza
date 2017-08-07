@@ -1,10 +1,10 @@
 web:
-  image: tutorial/nginx
+  image: sameersbn/nginx:1.10.3
   ports:
     - "8080:80"
   volumes:
     - ./:/var/www
-    - ./conf/vhost.conf:/etc/nginx/sites-enabled/vhost.conf
+    - ./conf/sites_enabled:/etc/nginx/sites-enabled
     - ./www-logs/:/var/log/nginx
   links:
     - php
