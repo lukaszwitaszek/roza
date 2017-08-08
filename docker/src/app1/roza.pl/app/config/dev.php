@@ -6,10 +6,15 @@
 return [
     'app' => [
         'nazwa' => 'Aplikacja KŻR',
-        'url' => 'http://roza.pl.docker.dev:8080'
+        'url' => 'http://roza.pl.docker.dev:8080',
+        'hash' => [
+          'algo' => PASSWORD_BCRYPT,
+          'cost' => 10
+        ],
     ],
     'sesja' => [
-        'identyfikator' => 'user_id'
+        'identyfikator' => 'user_id',
+        'identyfikator_uprzywilejowany' => 'sUser_id',
     ],
     'twig' => [
         'debug' => true

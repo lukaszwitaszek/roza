@@ -14,45 +14,60 @@ $app->get('/admin', function() use($app){
 
 
 $app->post('/admin', function() use ($app){
-    
-    $request = $app->request;
-    $password = $request->post('password');
-    $v = $app->walidacja;
-    $v->validate([
-        'password' => [$password,'required'],
-    ]);
-    
-    if ($v->passes()){
-        
-            $title = $app->config->get('app.nazwa').' | Administracja';
-            $navItems = $app->menu->giveAllItems();
-            
-            // opis koł
-            $listaKol=$app->kolo->all();
-            foreach($listaKol as $l){
-                $listaKolZel[]=[
+  $request = $app->request;
+  $password = $request->post('password');
+  $v = $app->walidacja;
+  $v->validate([
+    'password' => [$password,'required'],
+  ]);
+
+  if ($v->passes()){
+        if($app->auth){
+            $privIndex = $app->hash->password($app->auth->email);
+            $passHashed= $app->hash->password($password);
+            if ($app->hasz->where('id',$privIndex)->first()->hasz==$passHashed){
+                $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$privIndex;
+                $title = $app->config->get('app.nazwa').' | Administracja';
+                $navItems = $app->menu->giveAllItems();
+                // opis koł
+                $listaKol=$app->kolo->all();
+                foreach($listaKol as $l){
+                    $listaKolZel[]=[
                     'kolo' => $l,
                     'zelator' => $app->uczestnik->where('id',$l['zelator_id'])->first(),
-                ];
-            }
-            
-            // lista administratorów
-    $listaAdmin=$app->uczestnik->where('admin',1)->get();
-            
-            
-            $app->view()->appendData([
-                'kola' => $listaKolZel,
-                'admini' => $listaAdmin,
-            ]);
-        
-           $app->render('admin.php',[
-               'siteTitle' => $title,
-               'header' => true,
-               'nav' => $navItems,
-               'footer' => true,
-           ]);
-})->name('admin.post');
+                    ];
+                }
+                // lista administratorów
+                $listaAdmin=$app->uczestnik->where('admin',1)->get();
 
+                $app->view()->appendData([
+                    'kola' => $listaKolZel,
+                    'admini' => $listaAdmin,
+                ]);
+
+                $app->render('admin.php',[
+                    'siteTitle' => $title,
+                    'header' => true,
+                    'nav' => $navItems,
+                    'footer' => true,
+                ]);
+            } else {
+                $app->flash('global','Nie udało się zalogować administratora.');
+                $app->response->redirect($app->urlFor('admin'));
+            }
+        } else {
+            $title = $app->config->get('app.nazwa').' | główna';
+            $navItems = $navItems = $app->menu->giveAllItems();
+            $app->render('home.php', [
+                'errors' => $v->errors(),
+                'request'=> $request,
+                'header' => true,
+                'nav' => $navItems,
+                'footer' => true,
+            ]);
+        }
+  }
+})->name('admin.post');
 
 
 $app->post('/admin/kolo(/:nr_kola)', function($nr_kola=0) use ($app){

@@ -2,3 +2,5 @@
 172.17.0.1 - - [28/Jul/2017:22:19:24 +0000] "GET /favicon.ico HTTP/1.1" 200 571 "http://roza.pl.docker.dev:8080/admin" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 172.17.0.1 - - [31/Jul/2017:06:26:19 +0000] "GET /admin HTTP/1.1" 200 580 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 172.17.0.1 - - [31/Jul/2017:06:26:19 +0000] "GET /favicon.ico HTTP/1.1" 200 577 "http://roza.pl.docker.dev:8080/admin" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+172.17.0.1 - - [07/Aug/2017:11:50:43 +0000] "GET / HTTP/1.1" 200 571 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+172.17.0.1 - - [07/Aug/2017:12:21:56 +0000] "GET / HTTP/1.1" 200 574 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"

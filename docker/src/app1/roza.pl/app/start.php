@@ -18,10 +18,12 @@ use Wwd\Mod\Tajemnica;
 use Wwd\Mod\Uczestnik;
 use Wwd\Mod\Kolo;
 use Wwd\Mod\Wiadomosc;
+use Wwd\Mod\Hasz;
 use Wwd\Menus\Menus;
 
 use Wwd\Valid\Validator;
 use Wwd\Middleware\BeforeMiddleware;
+use Wwd\helpers\Hash;
 
 // bazowy folder do dołączanych plików
 define('INC_ROOT', dirname(__DIR__));
@@ -36,7 +38,7 @@ $app = new Slim([
 
 // udostępnienie konfiguracji
 $app->configureMode($app->config('mode'), function() use($app){
-   $app->config = Config::load (INC_ROOT . "/app/config/{$app->mode}.php"); 
+   $app->config = Config::load (INC_ROOT . "/app/config/{$app->mode}.php");
 });
 
 // inicjalizacja widoków
@@ -62,6 +64,16 @@ $app->container->set('tajemnica', function(){
 // dołączenie funkcjonalności klasy Uczestnik
 $app->container->set('uczestnik', function(){
     return new Uczestnik;
+});
+
+// dołączenie funkcjonalności klasy Hasze (model)
+$app->container->set('hasz', function(){
+    return new Hasz;
+});
+
+// dołączenie funkcjonalności haszowania
+$app->container->singleton('hash', function() use($app){
+    return new Hash($app->config);
 });
 
 // dołączenie funkcjonalności klasy Kolo
