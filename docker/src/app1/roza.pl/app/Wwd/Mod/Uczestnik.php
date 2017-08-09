@@ -28,5 +28,9 @@ class Uczestnik extends Eloquent
     public function tajemnica($uczObj,$tajObj){
         return $tajObj->where('nr_tajemnicy',$uczObj['nr_tajemnicy'])->first();
     }
+    
+    public function wiadomosc(){
+        return $this->hasMany('Wwd\Mod\Wiadomosc','autor_id','id');
+    }
         
 }

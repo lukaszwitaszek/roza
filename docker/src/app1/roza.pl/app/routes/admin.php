@@ -14,14 +14,14 @@ $app->get('/admin', function() use($app){
 
 
 $app->post('/admin', function() use ($app){
-  $request = $app->request;
-  $password = $request->post('password');
-  $v = $app->walidacja;
-  $v->validate([
-    'password' => [$password,'required'],
-  ]);
-
-  if ($v->passes()){
+    $request = $app->request;
+    $password = $request->post('password');
+    $v = $app->walidacja;
+    $v->validate([
+      'password' => [$password,'required'],
+    ]);
+    
+    if ($v->passes()){
         if($app->auth){
             $privIndex = $app->hash->password($app->auth->email);
             $passHashed= $app->hash->password($password);
@@ -56,17 +56,20 @@ $app->post('/admin', function() use ($app){
                 $app->response->redirect($app->urlFor('admin'));
             }
         } else {
-            $title = $app->config->get('app.nazwa').' | główna';
-            $navItems = $navItems = $app->menu->giveAllItems();
-            $app->render('home.php', [
-                'errors' => $v->errors(),
-                'request'=> $request,
-                'header' => true,
-                'nav' => $navItems,
-                'footer' => true,
-            ]);
-        }
-  }
+            $app->flash('global','Brak uprawnień do logowania do wybranej sekcji.');
+            $app->response->redirect($app->urlFor('home'));
+        } 
+    } else {
+        $title = $app->config->get('app.nazwa').' | Logowanie';
+        $navItems = $navItems = $app->menu->giveAllItems();
+        $app->render('azLoginForm.php', [
+            'errors' => $v->errors(),
+            'request'=> $request,
+            'header' => true,
+            'nav' => $navItems,
+            'footer' => true,
+        ]);
+    }
 })->name('admin.post');
 
 

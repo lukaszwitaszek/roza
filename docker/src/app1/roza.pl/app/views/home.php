@@ -15,11 +15,9 @@
 {% block content2 %}
     {% if auth %}
         <p>Wiadomości przeznaczone dla twojego koła:</p>
-        <p>
-            {% for item in wiadomosc %}
-                {{item.naglowek}}, wysłana {{item.updated_at}}<br/>{{item.tresc}}
-            {% endfor %}
-        </p>
+        {% for item in wiadomosc %}
+            <p>{{item.naglowek}}, wysłana {{item.updated_at}}<br/>{{item.tresc}}</p>
+        {% endfor %}
     {% else %}
         Uzyskaj dostęp do informacji dla członków Koła.</br>
         <form action="{{ urlFor('home.post') }}" method="post" autocomplete="off">
