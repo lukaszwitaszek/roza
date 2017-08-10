@@ -44,7 +44,7 @@
             <input type="checkbox" name="admin" id="admin" value="1">
             <label for="zelat">Zealtor</label>
             <input type="checkbox" name="zelat" id="zelat" value="1">
-            <select name="zelatowane_kolo">
+            <select name="kolo">
                 {% for zk in kola %}
                     <option value="{{zk.id}}">{{zk.nazwa}}</option>
                 {% endfor%}

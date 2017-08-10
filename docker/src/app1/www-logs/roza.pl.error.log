@@ -33,3 +33,30 @@ PHP message: PHP Stack trace:
 PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
 PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
 PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:52" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/08/09 08:12:23 [error] 15#15: *46 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to a member function giveAllItems() on null in /var/www/roza.pl/app/routes/zelator.php on line 77
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:54
+PHP message: PHP   4. require() /var/www/roza.pl/app/routes.php:8" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /kontakt HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/zelator"
+2017/08/09 09:02:11 [error] 15#15: *48 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to a member function giveAllItems() on null in /var/www/roza.pl/app/routes/zelator.php on line 73
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:54
+PHP message: PHP   4. require() /var/www/roza.pl/app/routes.php:8" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /kontakt HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/zelator"
+2017/08/09 11:15:26 [error] 15#15: *73 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/routes/uczestnik.php on line 33
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:54" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/zelator"
+2017/08/09 12:43:07 [error] 15#15: *118 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected end of file in /var/www/roza.pl/app/routes/uczestnik.php on line 46
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:54" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /uczestnik HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"
+2017/08/09 12:55:02 [error] 15#15: *125 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ';', expecting ']' in /var/www/roza.pl/app/routes/uczestnik.php on line 24
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:54" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "GET /uczestnik HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080"

@@ -46,5 +46,29 @@ $app->get('/uczestnik(/:id)', function($id=0) use($app){
 
 $app->post('/uczestnik(/:id)', function($id=0) use($app){
     var_dump($app->request->post());
+    $req = $app->request;
+    $adm = ($req->post('admin'))? 1 : 0;
+    $zel = ($req->post('zelat'))? 1 : 0;
+    $wiad = $app->wiadomosc->where('kolo_id',$req->post('kolo'))->get()->last()->id;
+    $ostTaj = $app->uczestnik->where('kolo_id',$req->post('kolo'))->get()->last()->nr_tajemnicy;
+    echo $ostTaj;
+    $taj = ($ostTaj<20)? $ostTaj+1 : 1;
+    
+    $app->uczestnik->create([
+        'imie' => $req->post('imie'),
+        'nazwisko' => $req->post('nazwisko'),
+        'email' => $req->post('email'),
+        'telefon' => $req->post('telefon'),
+        'admin' => $adm,
+        'zelat' => $zel,
+        'kolo_id'  => $req->post('kolo'),
+        'nr_tajemnicy' => $taj,
+        'ostatnia_wiadomosc' => $wiad,
+    ]);
+    
+    $app->hasz->create([
+        'id' => $app->hash->password($req->post('email')),
+        'hasz' => $app->hash->password($req->post('password')),
+    ]);
     
 })->name('uczestnik.post');
