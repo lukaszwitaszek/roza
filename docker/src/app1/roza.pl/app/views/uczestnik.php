@@ -6,12 +6,20 @@
     <p>Witaj {{auth.imie}} {{auth.nazwisko}}</p>
     <p>Znajdujesz się w panelu zarządzania uczestnikami KŻR.</p>
     {% if usInfo%}
-        <p>W systemie zarejestrowano następujących uczestników:<br>
-            {% for u in usInfo %}
-                {{u.uczestnik.imie}} {{u.uczestmik.nazwisko}}, będącego członkiem koła {{u.kolo}}<br>
-            {% endfor %}
-        </p>
-    {% else %}
+        <form action="{{urlFor('uczestnik.post')}}/0" method="post" autocomplete="off">
+        <div>
+            <input type="hidden" name="add" id="add" value="0">
+            <p>W systemie zarejestrowano następujących uczestników:<br>
+                {% for u in usInfo %}
+                    {{u.uczestnik.imie}} {{u.uczestmik.nazwisko}}, będącego członkiem koła {{u.kolo.nazwa}}  Usunąć: <input type="checkbox" name="{{u.uczestnik.id}}" id="{{u.uczestnik.id}}" value="del"><br>
+                {% endfor %}
+            </p>
+        </div>
+        <div>
+            <input type="submit" value="Usuń">
+        </div>
+    </form>
+    {% elseif uInfo %}
         <p>Szczegóły dotyczące uczestnika:</p>
         <p>{{uInfo.uczestnik.imie}} {{uInfo.uczestnik.nazwisko}}, przynależy do {{uInfo.kolo}}</p>
         <p>Uczestnik przesłał następujące wiadomości:<br>
@@ -24,6 +32,7 @@
     FORMULARZ DODAWANIA UCZESTNIKA
     <form action="{{urlFor('uczestnik.post')}}/0" method="post" autocomplete="off">
         <div>
+            <input type="hidden" name="add" id="add" value="1">
             <label for="imie">Podaj imię</label>
             <input type="text" name="imie" id="imie">
                 {% if errors.first('imie') %} {{ errors.first('imie') }}{% endif %}

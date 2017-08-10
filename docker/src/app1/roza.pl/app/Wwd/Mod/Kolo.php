@@ -3,6 +3,7 @@
 namespace Wwd\Mod;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Kolo extends Eloquent
 {
@@ -13,6 +14,8 @@ class Kolo extends Eloquent
         'zelator_id',
         'rolowanie',
     ];
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
     
     public function uczestnik(){
         return $this->hasMany('Wwd\Mod\Uczestnik','kolo_id');

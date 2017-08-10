@@ -3,6 +3,7 @@
 namespace Wwd\Mod;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tajemnica extends Eloquent
 {
@@ -14,6 +15,7 @@ class Tajemnica extends Eloquent
         'modyfikacja',
         'nr_tajemnicy',
     ];
-    
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
     
 }

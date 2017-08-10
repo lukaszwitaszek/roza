@@ -3,6 +3,7 @@
 namespace Wwd\Mod;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Wiadomosc extends Eloquent
 {
@@ -14,6 +15,8 @@ class Wiadomosc extends Eloquent
         'kolo_id',
         'autor_id',
     ];
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
     
     public function kolo(){
         return $this->belongsTo('Wwd\Mod\Kolo', 'id', 'kolo_id');

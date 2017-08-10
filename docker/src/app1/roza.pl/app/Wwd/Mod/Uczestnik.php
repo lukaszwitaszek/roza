@@ -3,9 +3,12 @@
 namespace Wwd\Mod;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Uczestnik extends Eloquent
 {
+    use SoftDeletes;
     protected $table = 'uczestnicy';
     
     protected $fillable = [
@@ -19,6 +22,8 @@ class Uczestnik extends Eloquent
         'nr_tajemnicy',
         'ostatnia_wiadomosc',
     ];
+    
+    protected $dates = ['deleted_at'];
     
     public function kolo($uczObj,$kolObj){
         return $kolObj->where('id',$uczObj['kolo_id'])->first();
