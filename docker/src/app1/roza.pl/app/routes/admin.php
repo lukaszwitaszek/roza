@@ -25,7 +25,7 @@ $app->post('/admin', function() use ($app){
         if($app->auth){
             $privIndex = $app->hash->password($app->auth->email);
             $passHashed= $app->hash->password($password);
-            if ($app->hasz->where('id',$privIndex)->first()->hasz==$passHashed){
+            if ($haszRekord=$app->hasz->where('id',$privIndex)->first()&&$haszRekord->haszHasla==$passHashed){
                 $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$privIndex;
                 $title = $app->config->get('app.nazwa').' | Administracja';
                 $navItems = $app->menu->giveAllItems();

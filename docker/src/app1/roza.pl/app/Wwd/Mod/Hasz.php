@@ -10,7 +10,7 @@ class Hasz extends Eloquent
 
     protected $fillable = [
         'id',
-        'hasz',
+        'haszHasla',
     ];
 
 
