@@ -62,6 +62,9 @@
             <label for="password">Podaj hasło</label>
             <input type="password" name="password" id="password">
             {% if errors.first('password') %} {{ errors.first('password') }}{% endif %}
+            <br>
+            <label for="passwordConfirm">Powtórz hasło</label>
+            <input type="password" name="passwordConfirm" id="passwordConfirm">
         </div>
         <div>
             <input type="submit" value="Dodaj">

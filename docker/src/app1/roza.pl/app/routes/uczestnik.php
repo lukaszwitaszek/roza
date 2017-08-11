@@ -47,9 +47,21 @@ $app->get('/uczestnik(/:id)', function($id=0) use($app){
 
 $app->post('/uczestnik(/:id)', function($id=0) use($app){
     $req = $app->request;
+    
     if ($req->post('add')){
+        $v = $app->walidacja;
+        $v->validate([
+            'email' => [$email, 'required|email|uniqueEmail'],
+            'password' => [$password,'required|min(6)'],
+            'password_confirm' => [$passwordConfirm,'required|matches(password)'],
+        'username' => [$username, 'required|alnumDash|max(20)|uniqueUsername'],
+        'password' => [$password, 'required|min(6)'],
+        'password_confirm' => [$passwordConfirm,'required|matches(password)'],
+        ]);
+        
         $adm = ($req->post('admin'))? 1 : 0;
         $zel = ($req->post('zelat'))? 1 : 0;
+        
         $wiad = $app->wiadomosc->where('kolo_id',$req->post('kolo'))->get()->last()->id;
         if ($tempU = $app->uczestnik->where('kolo_id',$req->post('kolo'))->get()->last()){
             $ostTaj = $tempU->nr_tajemnicy;
@@ -77,20 +89,33 @@ $app->post('/uczestnik(/:id)', function($id=0) use($app){
         $app->response->redirect($app->urlFor('uczestnik'));
         
     } else {
+        $uToBDel = array();
+        $hToBDel = array();
         $post=$req->post();
-        foreach ($post as $reqArgKey => $reqArgVal){
+        $adminCount=$app->uczestnik->where('admin',1)->get()->count();
+        foreach ($post as $reqArgKey => $reqArgVal){    
             if ($reqArgVal=='del') {
                 $tempU = $app->uczestnik->where('id', $reqArgKey)->first();
-                var_dump($tempU);
-                if ($tempU->admin||$tempU->zelat) $hToBDel[]=$app->hash->password($tempU->email);
-                $uToBDel[]=$reqArgKey;
+                if ($tempU->id!=$app->auth->id){
+                    $uToBDel[]=$reqArgKey;
+                    if ($tempU->admin||$tempU->zelat){
+                        if ($tempU->admin) $adminCount--;
+                        $hToBDel[]=$app->hash->password($tempU->email);
+                    }
+                }
             }
         }
-        $app->uczestnik->destroy($uToBDel);
-        $app->hasz->destroy($hToBDel);
-        
-        $app->flash('global','Usunięto uczestnik(a/ow): ('.count($uToBDel).').');
-        $app->response->redirect($app->urlFor('uczestnik'));
+        if ($adminCount>0){
+            $app->uczestnik->destroy($uToBDel);
+            $app->hasz->destroy($hToBDel);
+            $app->flash('global','Usunięto uczestnik(a/ow): ('.count($uToBDel).').');
+            $app->response->redirect($app->urlFor('uczestnik'));
+        } else{
+            $app->flash('global','!Błąd usuwania uczestników: usunięcie wszystkich administratorów');
+            $app->response->redirect($app->urlFor('uczestnik'));
+        }
+
     }
+
     
 })->name('uczestnik.post');
