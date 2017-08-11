@@ -1,5 +1,0 @@
-2017/08/07 10:47:13 [error] 5#5: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/"
-2017/08/07 10:53:55 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
-2017/08/07 10:55:37 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
-2017/08/07 11:30:55 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
-2017/08/07 11:39:29 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
