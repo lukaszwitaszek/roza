@@ -33,25 +33,25 @@
     <form action="{{urlFor('uczestnik.post')}}/0" method="post" autocomplete="off">
         <div>
             <input type="hidden" name="add" id="add" value="1">
-            <label for="imie">Podaj imię</label>
-            <input type="text" name="imie" id="imie">
+            <label for="imie">Podaj imię (max. 30 znakow)</label>
+            <input type="text" name="imie" id="imie" value="{{request.post('imie')}}">
                 {% if errors.first('imie') %} {{ errors.first('imie') }}{% endif %}
             <br>
-            <label for="nazwisko">Podaj nazwisko</label>
-            <input type="text" name="nazwisko" id="nazwisko">
+            <label for="nazwisko">Podaj nazwisko (max. 30 znakow)</label>
+            <input type="text" name="nazwisko" id="nazwisko" value="{{request.post('nazwisko')}}">
                 {% if errors.first('nazwisko') %} {{ errors.first('nazwisko') }}{% endif %}
             <br>
             <label for="email">Podaj adres email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" value="{{request.post('email')}}">
                 {% if errors.first('email') %} {{ errors.first('email') }}{% endif %}
             <br>
             <label for="telefon">Podaj nr telefonu</label>
-            <input type="text" name="telefon" id="telefon">
+            <input type="text" name="telefon" id="telefon"value="{{request.post('telefon')}}">
                 {% if errors.first('telefon') %} {{ errors.first('telefon') }}{% endif %}
             <br>
             <label for="admin">Administrator</label>
             <input type="checkbox" name="admin" id="admin" value="1">
-            <label for="zelat">Zealtor</label>
+            <label for="zelat">Zelator</label>
             <input type="checkbox" name="zelat" id="zelat" value="1">
             <select name="kolo">
                 {% for zk in kola %}
@@ -65,6 +65,7 @@
             <br>
             <label for="passwordConfirm">Powtórz hasło</label>
             <input type="password" name="passwordConfirm" id="passwordConfirm">
+            {% if errors.first('password_confirm') %} {{ errors.first('password_confirm') }}{% endif %}
         </div>
         <div>
             <input type="submit" value="Dodaj">

@@ -24,7 +24,10 @@ $app->post('/zelator', function() use ($app){
         if($app->auth){
             $privIndex = $app->hash->password($app->auth->email);
             $passHashed= $app->hash->password($password);
-            if ($app->hasz->where('id',$privIndex)->first()->hasz==$passHashed){
+            var_dump($privIndex);
+            var_dump($passHashed);
+            $tempHash=$app->hasz->where('id',$privIndex)->first();
+            if ($tempHash&&($tempHash->hasz==$passHashed)){
                 $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$privIndex;
                 $title = $app->config->get('app.nazwa').' | Zelatorowanie';
                 $navItems = $app->menu->giveAllItems();
@@ -48,8 +51,8 @@ $app->post('/zelator', function() use ($app){
                     'footer' => true,
                 ]);
             } else {
-                $app->flash('global','Nie udało się zalogować zelatora.');
-                $app->response->redirect($app->urlFor('zelator'));
+                //$app->flash('global','Nie udało się zalogować zelatora.');
+                //$app->response->redirect($app->urlFor('zelator'));
             }
         } else {
             $app->flash('global','Brak uprawnień do logowania do wybranej sekcji.');

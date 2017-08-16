@@ -1,0 +1,43 @@
+2017/08/11 22:16:22 [error] 15#15: *13 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ']' in /var/www/roza.pl/app/routes/uczestnik.php on line 61
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. require() /var/www/roza.pl/public/index.php:3
+PHP message: PHP   3. require() /var/www/roza.pl/app/start.php:54" while reading response header from upstream, client: 172.17.0.1, server: roza.pl.docker.dev, request: "POST /uczestnik/0 HTTP/1.1", upstream: "fastcgi://172.17.0.3:9000", host: "roza.pl.docker.dev:8080", referrer: "http://roza.pl.docker.dev:8080/uczestnik"
+2017/08/11 22:18:55 [error] 15#15: *20 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting '(' in /var/www/roza.pl/app/Wwd/Valid/Validator.php on line 46
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/uczestnik.php:48-139}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Slim\Slim->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:54
+PHP message: PHP  12. Slim\Helper\Set->get() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:232
+PHP message: PHP  13. Slim\Helper\Set->Slim\Helper\{closure}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:88
+PHP message: PHP  14. {closure:/var/www/roza.pl/app/start.php:90-92}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:228
+PHP message: PHP  15. spl_autoload_call() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:91
+PHP message: PHP  16. Composer\Autoload\ClassLoader->loadClass() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:0
+PHP message: PHP  17.
+2017/08/11 22:19:50 [error] 15#15: *20 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected 'use' (T_USE), expecting ';' or '{' in /var/www/roza.pl/app/Wwd/Valid/Validator.php on line 46
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/roza.pl/public/index.php:0
+PHP message: PHP   2. Slim\Slim->run() /var/www/roza.pl/public/index.php:5
+PHP message: PHP   3. Slim\Middleware\PrettyExceptions->call() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1300
+PHP message: PHP   4. Wwd\Middleware\BeforeMiddleware->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php:67
+PHP message: PHP   5. Slim\Middleware\MethodOverride->call() /var/www/roza.pl/app/Wwd/Middleware/BeforeMiddleware.php:10
+PHP message: PHP   6. Slim\Middleware\Flash->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/MethodOverride.php:92
+PHP message: PHP   7. Slim\Slim->call() /var/www/roza.pl/vendor/slim/slim/Slim/Middleware/Flash.php:85
+PHP message: PHP   8. Slim\Route->dispatch() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:1355
+PHP message: PHP   9. call_user_func_array:{/var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  10. {closure:/var/www/roza.pl/app/routes/uczestnik.php:48-139}() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:468
+PHP message: PHP  11. Slim\Slim->__get() /var/www/roza.pl/vendor/slim/slim/Slim/Route.php:54
+PHP message: PHP  12. Slim\Helper\Set->get() /var/www/roza.pl/vendor/slim/slim/Slim/Slim.php:232
+PHP message: PHP  13. Slim\Helper\Set->Slim\Helper\{closure}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:88
+PHP message: PHP  14. {closure:/var/www/roza.pl/app/start.php:90-92}() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:228
+PHP message: PHP  15. spl_autoload_call() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:91
+PHP message: PHP  16. Composer\Autoload\ClassLoader->loadClass() /var/www/roza.pl/vendor/slim/slim/Slim/Helper/Set.php:0
+PHP message: P

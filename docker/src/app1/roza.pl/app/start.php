@@ -88,7 +88,7 @@ $app->container->set('wiadomosc', function(){
 
 // walidacja
 $app->container->singleton('walidacja', function() use($app){
-    return new Validator;
+    return new Validator($app);
 });
 
 // budowanie menu

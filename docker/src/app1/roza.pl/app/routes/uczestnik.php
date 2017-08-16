@@ -47,47 +47,69 @@ $app->get('/uczestnik(/:id)', function($id=0) use($app){
 
 $app->post('/uczestnik(/:id)', function($id=0) use($app){
     $req = $app->request;
+    $listaKol=$app->kolo->all();
     
     if ($req->post('add')){
-        $v = $app->walidacja;
-        $v->validate([
-            'email' => [$email, 'required|email|uniqueEmail'],
-            'password' => [$password,'required|min(6)'],
-            'password_confirm' => [$passwordConfirm,'required|matches(password)'],
-        'username' => [$username, 'required|alnumDash|max(20)|uniqueUsername'],
-        'password' => [$password, 'required|min(6)'],
-        'password_confirm' => [$passwordConfirm,'required|matches(password)'],
-        ]);
-        
         $adm = ($req->post('admin'))? 1 : 0;
         $zel = ($req->post('zelat'))? 1 : 0;
-        
-        $wiad = $app->wiadomosc->where('kolo_id',$req->post('kolo'))->get()->last()->id;
-        if ($tempU = $app->uczestnik->where('kolo_id',$req->post('kolo'))->get()->last()){
-            $ostTaj = $tempU->nr_tajemnicy;
-        } else $ostTaj = 0;
-        $taj = ($ostTaj<20)? $ostTaj+1 : 1;
-        
-        $app->uczestnik->create([
-            'imie' => $req->post('imie'),
-            'nazwisko' => $req->post('nazwisko'),
-            'email' => $req->post('email'),
-            'telefon' => $req->post('telefon'),
-            'admin' => $adm,
-            'zelat' => $zel,
-            'kolo_id'  => $req->post('kolo'),
-            'nr_tajemnicy' => $taj,
-            'ostatnia_wiadomosc' => $wiad,
-        ]);
-        if ($adm || $zel){
-            $app->hasz->create([
-                'id' => $app->hash->password($req->post('email')),
-                'haszHasla' => $app->hash->password($req->post('password')),
+        $v = $app->walidacja;
+        if($adm||$zel){
+            $v->validate([
+                'imie' => [$req->post('imie'), 'required|alnum|max(30)'],
+                'nazwisko' => [$req->post('nazwisko'), 'required|alnumDash|max(30)'],
+                'email' => [$req->post('email'), 'required|email|uniqueEmail'],
+                'telefon' => [$req->post('telefon'), 'int'],
+                'password' => [$req->post('password'), 'required|min(6)'],
+                'password_confirm' => [$req->post('passwordConfirm'),'required|matches(password)'],
+            ]);
+        } else {
+            $v->validate([
+                'imie' => [$req->post('imie'), 'required|alnum|max(30)'],
+                'nazwisko' => [$req->post('nazwisko'), 'required|alnumDash|max(30)'],
+                'email' => [$req->post('email'), 'required|email|uniqueEmail'],
+                'telefon' => [$req->post('telefon'), 'min(9, number)|max(11, number)'],
             ]);
         }
-        $app->flash('global','Dodano nowego uczestnika.');
-        $app->response->redirect($app->urlFor('uczestnik'));
-        
+        if ($v->passes()){
+            $wiad = $app->wiadomosc->where('kolo_id',$req->post('kolo'))->get()->last()->id;
+            if ($tempU = $app->uczestnik->where('kolo_id',$req->post('kolo'))->get()->last()){
+                $ostTaj = $tempU->nr_tajemnicy;
+            } else $ostTaj = 0;
+            $taj = ($ostTaj<20)? $ostTaj+1 : 1;
+            
+            $app->uczestnik->create([
+                'imie' => $req->post('imie'),
+                'nazwisko' => $req->post('nazwisko'),
+                'email' => $req->post('email'),
+                'telefon' => $req->post('telefon'),
+                'admin' => $adm,
+                'zelat' => $zel,
+                'kolo_id'  => $req->post('kolo'),
+                'nr_tajemnicy' => $taj,
+                'ostatnia_wiadomosc' => $wiad,
+            ]);
+            if ($adm || $zel){
+                $app->hasz->create([
+                    'id' => $app->hash->password($req->post('email')),
+                    'haszHasla' => $app->hash->password($req->post('password')),
+                ]);
+            }
+            var_dump($app->hash->password($req->post('email')));
+            var_dump($app->hash->password($req->post('password')));
+            //$app->flash('global','Dodano nowego uczestnika.');
+            //$app->response->redirect($app->urlFor('uczestnik'));
+        } else {
+            $navItems = $navItems = $app->menu->giveAllItems();
+            $title = $app->config->get('app.nazwa').' | Uczestnik';
+            $app->render('uczestnik.php', [
+                'errors' => $v->errors(),
+                'request'=> $req,
+                'header' => true,
+                'nav' => $navItems,
+                'kola' => $listaKol,
+                'footer' => true,
+            ]);
+        }   
     } else {
         $uToBDel = array();
         $hToBDel = array();
