@@ -23,10 +23,9 @@ $app->post('/admin', function() use ($app){
     
     if ($v->passes()){
         if($app->auth){
-            $privIndex = $app->hash->password($app->auth->email);
-            $passHashed= $app->hash->password($password);
-            if ($haszRekord=$app->hasz->where('id',$privIndex)->first()&&$haszRekord->haszHasla==$passHashed){
-                $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$privIndex;
+            $haszRekord=$app->hasz->where('id', $app->auth->email)->first();
+            if ($app->hash->passwordCheck($password,$haszRekord->haszHasla)){
+                $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$app->auth->email;
                 $title = $app->config->get('app.nazwa').' | Administracja';
                 $navItems = $app->menu->giveAllItems();
                 // opis koł
@@ -50,11 +49,11 @@ $app->post('/admin', function() use ($app){
                     'header' => true,
                     'nav' => $navItems,
                     'footer' => true,
-                ]);
+                ]);   
             } else {
-                $app->flash('global','Nie udało się zalogować administratora.');
+                $app->flash('global','Błędne hasło');
                 $app->response->redirect($app->urlFor('admin'));
-            }
+            }        
         } else {
             $app->flash('global','Brak uprawnień do logowania do wybranej sekcji.');
             $app->response->redirect($app->urlFor('home'));

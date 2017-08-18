@@ -58,7 +58,7 @@ $app->post('/uczestnik(/:id)', function($id=0) use($app){
                 'imie' => [$req->post('imie'), 'required|alnum|max(30)'],
                 'nazwisko' => [$req->post('nazwisko'), 'required|alnumDash|max(30)'],
                 'email' => [$req->post('email'), 'required|email|uniqueEmail'],
-                'telefon' => [$req->post('telefon'), 'int'],
+                //'telefon' => [$req->post('telefon'), 'int'],
                 'password' => [$req->post('password'), 'required|min(6)'],
                 'password_confirm' => [$req->post('passwordConfirm'),'required|matches(password)'],
             ]);
@@ -67,7 +67,7 @@ $app->post('/uczestnik(/:id)', function($id=0) use($app){
                 'imie' => [$req->post('imie'), 'required|alnum|max(30)'],
                 'nazwisko' => [$req->post('nazwisko'), 'required|alnumDash|max(30)'],
                 'email' => [$req->post('email'), 'required|email|uniqueEmail'],
-                'telefon' => [$req->post('telefon'), 'min(9, number)|max(11, number)'],
+                //'telefon' => [$req->post('telefon'), 'min(9, number)|max(11, number)'],
             ]);
         }
         if ($v->passes()){
@@ -90,14 +90,14 @@ $app->post('/uczestnik(/:id)', function($id=0) use($app){
             ]);
             if ($adm || $zel){
                 $app->hasz->create([
-                    'id' => $app->hash->password($req->post('email')),
+                    'id' => $req->post('email'),
                     'haszHasla' => $app->hash->password($req->post('password')),
                 ]);
             }
-            var_dump($app->hash->password($req->post('email')));
-            var_dump($app->hash->password($req->post('password')));
-            //$app->flash('global','Dodano nowego uczestnika.');
-            //$app->response->redirect($app->urlFor('uczestnik'));
+            //var_dump($app->hash->password($req->post('email')));
+            //var_dump($app->hash->password($req->post('password')));
+            $app->flash('global','Dodano nowego uczestnika.');
+            $app->response->redirect($app->urlFor('uczestnik'));
         } else {
             $navItems = $navItems = $app->menu->giveAllItems();
             $title = $app->config->get('app.nazwa').' | Uczestnik';
