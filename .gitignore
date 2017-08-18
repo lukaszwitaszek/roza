@@ -1,2 +1,3 @@
 !.gitignore
-docker\src\app1\www-logs
+docker\src\app1\www-logs\*.*
+*.log
