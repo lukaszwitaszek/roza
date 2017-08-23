@@ -11,7 +11,6 @@ class Kolo extends Eloquent
     
     protected $fillable = [
         'nazwa',
-        'zelator_id',
         'rolowanie',
     ];
     use SoftDeletes;
@@ -25,7 +24,10 @@ class Kolo extends Eloquent
         return $this->hasMany('Wwd\Mod\Wiadomosc');
     }
     
-    public function zelator($uczObj,$kolObj){
-        return $uczObj->where('id',$kolObj['zelator_id'])->first();
+    public function zelator($ucz){
+        return $ucz->where([
+            'zelat' => 1,
+            'kolo_id' => $this->id,
+        ])->get();
     }
 }

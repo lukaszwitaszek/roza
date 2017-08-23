@@ -94,8 +94,6 @@ $app->post('/uczestnik(/:id)', function($id=0) use($app){
                     'haszHasla' => $app->hash->password($req->post('password')),
                 ]);
             }
-            //var_dump($app->hash->password($req->post('email')));
-            //var_dump($app->hash->password($req->post('password')));
             $app->flash('global','Dodano nowego uczestnika.');
             $app->response->redirect($app->urlFor('uczestnik'));
         } else {

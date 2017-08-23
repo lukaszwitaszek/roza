@@ -11,7 +11,11 @@
     <hr>
     <p>W systemie są zarejestrowane następujące koła:</p>
     {% for i in kola %}
-        <p>{{i.kolo.nazwa}}, prowadzone przez {{i.zelator.imie}} {{i.zelator.nazwisko}}.</p>
+        <p>{{i.kolo.nazwa}}, prowadzone przez 
+            {% for j in i.zelator %}
+            {{j.imie}} {{j.nazwisko}}.
+            {% endfor %}
+        </p>
         <p><a href="{{ urlFor('admin.kolo.post')}}/{{i.kolo.id}}">edytuj</a></p><hr>
     {% endfor %}
     <hr>

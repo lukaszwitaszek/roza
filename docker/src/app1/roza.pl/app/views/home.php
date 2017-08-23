@@ -6,7 +6,7 @@
     {% if auth %}
         <p>Witaj {{auth.imie}} {{auth.nazwisko}}</p>
         <p>Aktualna tajemnica, którą się modlisz: <i>{{tajemnica.nazwa}}</i>.</br>{{tajemnica.opis}}</p>
-        <p>Koło ŻR, którego jesteś członkiem: <i>{{kolo.nazwa}}</i>.</br>Zelatorem jest <b>{{zelator.imie}}</b>.</p>
+        <p>Koło ŻR, którego jesteś członkiem: <i>{{kolo.nazwa}}</i>.</br>Zelatorem jest <b>{{zelator}}</b>.</p>
     {% else %}
         <p>Witaj na stronie Wspólnoty Żywego Różańca</p>
     {% endif %}

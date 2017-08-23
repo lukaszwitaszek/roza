@@ -6,6 +6,7 @@ $app->get('/logout', function() use($app){
     session_destroy();
     $_SESSION = array();
     $app->auth=false;
+    $app->superAuth=false;
     $app->zelat=false;
     $app->wiad=false;
     $app->tajemnicaPrzypisana=false;

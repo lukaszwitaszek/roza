@@ -98,6 +98,7 @@ $app->container->set('menu', function(){
 
 // obsługa sesyjności
 $app->auth=false;
+$app->superAuth=false;
 $app->zelat=false;
 $app->wiad=false;
 $app->tajemnicaPrzypisana=false;

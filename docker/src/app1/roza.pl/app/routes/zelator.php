@@ -1,15 +1,38 @@
 <?php
 
 $app->get('/zelator', function() use($app){
-    $title = $app->config->get('app.nazwa').' | Logowanie zelatora';
-    $navItems = $app->menu->giveAllItems();
-    $app->render('azLoginForm.php',[
-        'action' => $app->urlFor('zelator.post'),
-        'siteTitle' => $title,
-        'header' => true,
-        'nav' => $navItems,
-        'footer' => true,
-    ]);
+    if (!$app->superAuth){
+        $title = $app->config->get('app.nazwa').' | Logowanie zelatora';
+        $navItems = $app->menu->giveAllItems();
+        $app->render('azLoginForm.php',[
+            'action' => $app->urlFor('zelator.post'),
+            'siteTitle' => $title,
+            'header' => true,
+            'nav' => $navItems,
+            'footer' => true,
+        ]); 
+    } else {
+        $title = $app->config->get('app.nazwa').' | Zelatorowanie';
+        $navItems = $app->menu->giveAllItems();
+        // opis koła
+        $kolo=$app->kolo->where('id',$app->auth->kolo_id)->first();
+        $daneKola=[
+            'kolo' => $kolo,
+            'czlonkowie' => $app->uczestnik->where('kolo_id',$kolo['id'])->get(),
+            'wiadomosci' => $kolo->wiadomosc->all(),
+        ];
+        
+        $app->view()->appendData([
+            'daneKola' => $daneKola,
+        ]);
+        
+        $app->render('zelator.php',[
+            'siteTitle' => $title,
+            'header' => true,
+            'nav' => $navItems,
+            'footer' => true,
+        ]);
+    }
 })->name('zelator');
 
 $app->post('/zelator', function() use ($app){
@@ -22,26 +45,22 @@ $app->post('/zelator', function() use ($app){
     
     if ($v->passes()){
         if($app->auth){
-            $privIndex = $app->hash->password($app->auth->email);
-            $passHashed= $app->hash->password($password);
-            var_dump($privIndex);
-            var_dump($passHashed);
-            $tempHash=$app->hasz->where('id',$privIndex)->first();
-            if ($tempHash&&($tempHash->hasz==$passHashed)){
-                $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$privIndex;
+            $haszRekord=$app->hasz->where('id', $app->auth->email)->first();
+            if ($app->hash->passwordCheck($password,$haszRekord->haszHasla)){
+                $_SESSION[$app->config->get('identyfikator_uprzywilejowany')]=$app->auth->email;
+                $app->superAuth=true;
                 $title = $app->config->get('app.nazwa').' | Zelatorowanie';
                 $navItems = $app->menu->giveAllItems();
                 // opis koła
-                $listaKol=$app->kolo->where('zelator_id',$app->auth->id)->all();
-                foreach($listaKol as $l){
-                    $listaKolZel[]=[
-                    'kolo' => $l,
-                    'czlonkowie' => $app->uczestnik->where('kolo_id',$l['id'])->all(),
-                    'wiadomosci' => $l->wiadomosc->all(),
-                    ];
-                }
+                $kolo=$app->kolo->where('id',$app->auth->kolo_id)->first();
+                $daneKola=[
+                    'kolo' => $kolo,
+                    'czlonkowie' => $app->uczestnik->where('kolo_id',$kolo['id'])->get(),
+                    'wiadomosci' => $kolo->wiadomosc->all(),
+                ];
+                
                 $app->view()->appendData([
-                    'kola' => $listaKolZel,
+                    'kola' => $daneKola,
                 ]);
                 
                 $app->render('zelator.php',[
@@ -51,8 +70,8 @@ $app->post('/zelator', function() use ($app){
                     'footer' => true,
                 ]);
             } else {
-                //$app->flash('global','Nie udało się zalogować zelatora.');
-                //$app->response->redirect($app->urlFor('zelator'));
+                $app->flash('global','Nie udało się zalogować zelatora.');
+                $app->response->redirect($app->urlFor('zelator'));
             }
         } else {
             $app->flash('global','Brak uprawnień do logowania do wybranej sekcji.');
