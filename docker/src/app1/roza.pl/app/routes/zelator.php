@@ -60,7 +60,7 @@ $app->post('/zelator', function() use ($app){
                 ];
                 
                 $app->view()->appendData([
-                    'kola' => $daneKola,
+                    'daneKola' => $daneKola,
                 ]);
                 
                 $app->render('zelator.php',[

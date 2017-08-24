@@ -11,7 +11,7 @@
             <input type="hidden" name="add" id="add" value="0">
             <p>W systemie zarejestrowano następujących uczestników:<br>
                 {% for u in usInfo %}
-                    {{u.uczestnik.imie}} {{u.uczestmik.nazwisko}}, będącego członkiem koła {{u.kolo.nazwa}}  Usunąć: <input type="checkbox" name="{{u.uczestnik.id}}" id="{{u.uczestnik.id}}" value="del"><br>
+                    {{u.uczestnik.imie}} {{u.uczestmik.nazwisko}}, będącego członkiem koła {{u.kolo[0].nazwa}}  Usunąć: <input type="checkbox" name="{{u.uczestnik.id}}" id="{{u.uczestnik.id}}" value="del"><br>
                 {% endfor %}
             </p>
         </div>

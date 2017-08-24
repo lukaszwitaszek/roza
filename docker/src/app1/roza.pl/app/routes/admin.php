@@ -63,7 +63,10 @@ $app->post('/admin', function() use ($app){
                 foreach($listaKol as $l){
                     $listaKolZel[]=[
                     'kolo' => $l,
-                    'zelator' => $app->uczestnik->where('id',$l['zelator_id'])->first(),
+                    'zelator' => $app->uczestnik->where([
+                        'kolo_id' => $l['id'],
+                        'zelat' => 1,
+                        ])->get(),
                     ];
                 }
                 // lista administratorów
